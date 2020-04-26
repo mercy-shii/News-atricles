@@ -52,7 +52,7 @@ def process_results(source_results):
         
 
         
-            source_object = Source(id,name,description)
-            source_results.append(source_object)
+        source_object = Source(id,name,description)
+        source_results.append(source_object)
 
     return source_results  
