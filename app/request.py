@@ -32,7 +32,7 @@ def get_sources(category):
 
     return source_results
 
-def process_results(source_results):
+def process_results(news_results):
     '''
     Function  that processes the source result and transform them to a list of Objects
 
@@ -42,8 +42,8 @@ def process_results(source_results):
     Returns :
         source_results: A list of source objects
     '''
-    sources_available = []
-    for source_item in source_results:
+    process_results = []
+    for source_item in news_results:
         id = source_item.get('id')
         name = source_item.get('name')
         description = source_item.get('description')
@@ -52,7 +52,7 @@ def process_results(source_results):
         
 
         
-        source_object = Source(id,name,description)
-        source_results.append(source_object)
+        source_object = Source(id,name,description,url)
+        process_results.append(source_object)
 
-    return source_results  
+    return process_results  
