@@ -20,7 +20,7 @@ def get_sources(category):
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
 
-        source_results = None
+        
 
         if get_sources_response['sources']:
             source_results_list = get_source_response['sources']
