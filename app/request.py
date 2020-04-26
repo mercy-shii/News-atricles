@@ -20,16 +20,16 @@ def get_sources(category):
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
 
-        
+        sources = None
 
         if get_sources_response['sources']:
-            source_results_list = get_source_response['sources']
-            source_results = process_results(source_results_list)
+            source_sources_list = get_source_response['sources']
+            source_sources = process_sources(sources_source_list)
 
 
-    return source_results
+    return source_sources
 
-def process_results(source_list):
+def process_sources(source_list):
     '''
     Function  that processes the source result and transform them to a list of Objects
 
@@ -39,7 +39,7 @@ def process_results(source_list):
     Returns :
         source_results: A list of source objects
     '''
-    sourcce_results = []
+    source_sources = []
     for source_item in source_list:
         id = source_item.get('id')
         name = source_item.get('name')
@@ -50,4 +50,4 @@ def process_results(source_list):
             source_object = Source(id,name,description)
             source_results.append(source_object)
 
-    return source_results    
+    return source_sources   
