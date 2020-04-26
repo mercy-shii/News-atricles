@@ -5,34 +5,32 @@ from .models import source
 Source = source.Source
 
 #Getting api key
-api_key = app.config['SOURCES_API_KEY']
+api_key = app.config['NEWS_API_KEY']
 
 #Getting the source base url
-base_url = app.config["SOURCES_API_BASE_URL"]
+base_url = app.config["NEWS_API_BASE_URL"]
 
 def get_sources(category):
     '''
     Function that gets the json response to our url request
     '''
     get_sources_url = base_url.format(category,api_key)
-    print("-"*50)
-    print(get_sources_url)
-    print("-"*50)
+    
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
 
-        source_results = None
+        sources_results = None
 
         if get_sources_response['sources']:
-            source_result_list = get_sources_response['sources']
-            source_results = process_results(source_results)
+            sources_results_list = get_sources_response['sources']
+            sources_results = process_sources(sources_results_list)
 
 
-    return source_results
+    return sources_results
 
-def process_results(news_results):
+def process_sources(sources_list):
     '''
     Function  that processes the source result and transform them to a list of Objects
 
@@ -42,17 +40,16 @@ def process_results(news_results):
     Returns :
         source_results: A list of source objects
     '''
-    process_results = []
-    for source_item in news_results:
-        id = source_item.get('id')
-        name = source_item.get('name')
-        description = source_item.get('description')
-        url = source_item.get('url')
-        
-        
+    sources_results = []
+    for sources_item in sources_list:
+        id = sources_item.get('id')
+        name = sources_item.get('name')
+        description = sources_item.get('description')
+        url = sources_item.get('url')
 
-        
-        source_object = Source(id,name,description,url)
-        process_results.append(source_object)
 
-    return process_results  
+        if id:
+             sources_object = Source(id,name,description,url)
+             sources_results.append(sources_object)
+
+    return sources_results  

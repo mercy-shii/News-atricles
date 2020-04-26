@@ -11,9 +11,15 @@ def index():
     '''
     #Getting popular source
     general_sources = get_sources('general')
-    print(general_sources)
+    sports_sources = get_sources('sports')
+    technology_sources = get_sources('technology')
+    entertainment_sources = get_sources('enterainment')
+    business_sources = get_sources('business')
+    health_sources = get_sources('health')
+    science_sources = get_sources('science')
+
     title = 'News-articles'
-    return render_template('index.html',title = title,general = general_sources)
+    return render_template('index.html',title = title,business = business_sources,health = health_sources,science = science_sources,sports = sports_sources,technology = technology_sources,entertainment = enterainment_sources,general = general_sources)
 
 @app.route('/news/<int:news_id>')
 def news(news_id):
