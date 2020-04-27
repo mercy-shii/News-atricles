@@ -1,35 +1,124 @@
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
-{% extends 'base.html'}
+{% block styles %}
+        <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% endblock %}
+<!-- Content block -->
+{% block content %}
 
-<div class="container">
-    {% block content%}
-
-    <h2 class="text">General sources</h2>
-    <br>
-    {{macro.displaySourcesList(general_sources)}}
-
-    <h2 class="text">Sports sources</h2>
-    <br>
-    {{macro.displaySourcesList(sports_sources)}}
-
-    <h2 class="text">Technology sources</h2>
-    <br>
-    {{macro.displaySourcesList(technology_sources)}}
-
-    <h2 class="text">Entertainment sources</h2>
-    <br>
-    {{macro.displaySourcesList(entertainment_sources)}}
+<div class="everything text-center">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6-md">
+           <h1 class="text-center">Helo K</h1>
+               
+                <h2 class="title">General</h2>
+                {% for general_news in general %}
+                <div class="cards">       
+                    <h4 class="card-title h4 mb-4">{{general_news.name}}</h4>  
+                    <a href="/article/{{general_news.id}}" class="btn" target="_blank" >
+                        Go there  </a>
+                </div>          
+                {% endfor %}
+            
+        
+                <!---sports news-->
+                <h2 class="title"> Sports news</h2>
+                {% for sports_news in sports %}
+                <div class="cards">
+                    <h4 class="card-tirle2">{{  sports_news.name}}</h4>
     
-    <h2 class="text">Business sources</h2>
-    <br>
-    {{macro.displaySourcesList(business_sources)}}
+                        <a href="/article/{{sports_news.id}}" class="btn" target="_blank" style="color: blue;">
+                            Go there  
+                        </a>
+                    </div>
+                
+            {% endfor %}
+            <br>
 
-    <h2 class="text">Health sources</h2>
-    <br>
-    {{macro.displaySourcesList(health_sources)}}
+                 <!---Business news-->
+                <h2 class="title"> Business news</h2>
+                {% for business_news in business %}
+                <div class="cards">
+                    <h4 class="title3">{{  business_news.name}}</h4>
 
-    <h2 class="text">science sources</h2>
-    <br>
-    {{macro.displaySourcesList(science_sources)}}
+                        <a href="/article/{{business_news.id}}" class="btn" target="_blank" style="color: green">
+                            Go there  
+                        </a>
+                </div>
+            {% endfor %}
+            <br>
+                <!---Technology news--->
+                <h2> Technology news</h2>
+                {% for technology_news in technology %}
+                <div class="cards">
+                    <h4>{{  technology_news.name}}</h4>
+                    
+                    <a href="/article/{{technology_news.id}}" target="_blank" style="color: blue;">
+                        Go there  
+                    </a>
+                </div>
+            {% endfor %}
+            <br>
+
+            <style>
+                
+                h1{
+                    color: black;
+                    font-weight: 15px;
+                    font-size: 90px;
+                    padding : 30px;
+                    padding-top : 250px;
+                    padding-bottom : 300px;
+                    background-image: linear-gradient(to top, rgb(255, 255, 255), rgb(233, 241, 245), rgb(212, 227, 236), rgb(190, 213, 226), rgb(169, 199, 216), rgb(147, 185, 206), rgb(126, 170, 197), rgb(104, 156, 187), rgb(83, 142, 177), rgb(61, 128, 167), rgb(40, 114, 158), rgb(18, 100, 148));
+                    font-family: 'IBM Plex Serif', serif;
+                }
+                h2{
+                    font-family: 'Baloo', cursive;
+                    color:rgb(8, 100, 8);
+
+                }
+                .everything{
+                    align-items: center;
+                }
+                .cards{
+                    border: 1px solid black;
+                    margin: 40px;
+                    margin-left: 200px;
+                    margin-right: 200px;
+                    padding: 30px;
+                    padding-left: 100px;
+                    padding-right: 100px;
+                    border-top: 0px;
+                    border-left: 0px;
+                    box-shadow: 1px 3px 3px 20px solid grey;
+
+                }
+                .btn{
+                    border: 2px solid blue;
+                    color:blue;
+                    
+                }
+                .btn1{
+                    border: 2px solid blue;
+                    color: lightskyblue;
+                    
+                }
+                .btn2{
+                    border: 2px solid blue;
+                    color:lightgreen;
+                    
+                }
+                .btn:hover{
+                    background-color : blue;
+                    color:white;
+                    width: 10%;
+                }
+            </style>
+            {% endblock %}
+        </div>
+    </div>
 </div>
-{% endblock %}
+</div>

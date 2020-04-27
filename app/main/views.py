@@ -1,32 +1,32 @@
 from flask import render_template,request,redirect,url_for
-from . import main
-from ..request import get_sources,get_articles
+from .import  main
+from ..request import get_source,get_articles
+from ..model import Source
 
-#views
-@main.route('/')
-def index():
+# Views
+@main.route('/', methods=['GET']) #is a route decorator
+def index(): # view function
 
     '''
     View root page function that returns the index page and its data
-    '''
-    #Getting popular source
-    general_sources = get_sources('general')
-    sports_sources = get_sources('sports')
-    technology_sources = get_sources('technology')
-    entertainment_sources = get_sources('entertainment')
-    business_sources = get_sources('business')
-    health_sources = get_sources('health')
-    science_sources = get_sources('science')
+    ''' 
 
-    title = 'News-articles'
-    return render_template('index.html',title = title,business = business_sources,health = health_sources,science = science_sources,sports = sports_sources,technology = technology_sources,entertainment = entertainment_sources,general = general_sources)
+    general_news = get_source('general')
+    print('*************general news*********************')
+    print(general_news)
+    sports_news = get_source('sports')
+    business_news = get_source('business')
+    technology_news = get_source('technology')
+   
+    title='Feeds'
 
-@main.route('/source_id>')
-def source(id):
+    return render_template('index.html', title=title, general=general_news, sports=sports_news, business=business_news, technology=technology_news,)
 
-    '''
-    View news page function that returns the news details page and its data
-    '''
-    articles = get_articles(id)
-    title = 'News-articles'
-    return render_template('source.html',articles = articles,title = title)    
+@main.route('/article/<article_id>')
+def article(article_id):
+    articles = get_articles(article_id)
+
+    print('***get_article***')
+    print(articles)
+    title='Article hub'
+    return render_template('article.html',title = title,id=article_id,articles=articles)

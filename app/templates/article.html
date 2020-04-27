@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% block styles %}
+{{super()}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <!-- NEWS -->
+	<h2 class="top" >The Articles {{id}}</h2>
+    <h2 class="top" > Headline</h2>
+    
+    <div class="row">
+        {% for article in articles %}
+
+        <div class="col-md-4" id="articlecard">
+            <div id="cardcontent">
+				<a href="{{article.url}}" target="_blank">
+					<img src="{{article.image}}" alt="{{article.title}}" class="img-responsive" styles="height:30px">
+				</a>
+
+				<div">
+					<div class="caption">
+					<h4><a href="{{article.url}}" target="_blank">{{article.title |truncate(35)}}</a></h4>
+					
+					<a href="{{article.url}}" target="_blank"> Read More</a>
+				</div>
+				<div class="footer">
+					Published at: {{article.date}}
+
+				</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock%}
