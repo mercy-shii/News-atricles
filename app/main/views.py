@@ -1,19 +1,37 @@
 from flask import render_template
 from . import main
-from ..request import get_sources,get_articles
+from ..request import get_source,get_articles
+from ..models import Source
 
 @main.route('/')
 def index():
-    general_sources = get_sources('general')
-    sports_sources = get_sources('sports')
-    science_sources = get_sources('science')
-    business_sources = get_sources('business')
-    technology_sources = get_sources('technology')
-    entertainment_sources = get_sources('entertainment')
-    return render_template('index.html' , sports_sources = sports_sources , general_sources = general_sources , science_sources = science_sources , business_sources = business_sources, technology_sources = technology_sources)
 
 
-@main.route('/source/<id>')
-def sources(id):
-    articles = get_articles(id)
-    return render_template('articles.html' , name = id , articles = articles)
+
+
+
+    general_news = get_source('general')
+    print('*************general news*********************')
+    print(general_news)
+    sports_news = get_source('sports')
+    business_news = get_source('business')
+    technology_news = get_source('technology')
+    
+   
+    title='Feeds'
+
+    return render_template('index.html', title=title, general=general_news, sports=sports_news, business=business_news, technology=technology_news,)
+
+
+
+
+    
+   
+@main.route('/article/<article_id>')
+def article(article_id):
+    articles = get_articles(article_id)
+
+    print('***get_article***')
+    print(articles)
+    title='Article hub'
+    return render_template('article.html',title = title,id=article_id,articles=articles)
