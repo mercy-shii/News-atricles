@@ -18,7 +18,7 @@ def index(): # view function
     business_news = get_source('business')
     technology_news = get_source('technology')
    
-    title='Feeds'
+    title='News-articles'
 
     return render_template('index.html', title=title, general=general_news, sports=sports_news, business=business_news, technology=technology_news,)
 
