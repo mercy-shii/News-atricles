@@ -1,6 +1,7 @@
+from .main import main
 import urllib.request,json
 # this will aid in creating a link/connection to our API URLthen sends the request, the jason module will format the JSON response 
-from .model import Source, Article
+from .models import Source, Article
 api_key=None
 base_url=None
 articles_url=None 
@@ -9,8 +10,8 @@ def configure_request(app):
     global api_key,base_url,articles_url
     api_key = app.config['API_KEY']
 
-    base_url= app.config['SOURCE_BASE_URL']
-    print('***base source url***')
+    base_url= app.config['SOURCES_BASE_URL']
+    print('***base sources url***')
     print(base_url)
 
     articles_url = app.config['ARTICLE_BASE_URL']
@@ -37,7 +38,7 @@ def process_source(source_list):
 
 def get_source(category):
     get_source_url = base_url.format(category,api_key)
-    print('***get_source_url***')
+    print('***get_sources_url***')
     print(get_source_url)
 
     with urllib.request.urlopen(get_source_url) as url:

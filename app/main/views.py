@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from .import  main
 from ..request import get_source,get_articles
-from ..model import Source
+from ..models import Source
 
 # Views
 @main.route('/', methods=['GET']) #is a route decorator
@@ -28,5 +28,5 @@ def article(article_id):
 
     print('***get_article***')
     print(articles)
-    title='Article hub'
+    title='Articles'
     return render_template('article.html',title = title,id=article_id,articles=articles)
