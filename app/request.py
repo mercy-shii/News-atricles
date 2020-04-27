@@ -53,9 +53,10 @@ def process_sources(sources_list):
         category = sources_item.get('category')
         language = sources_item.get('language')
         country = sources_item.get('country')
+        urlToImage = sources_item.get('urlToImage')
 
         if id:
-            sources_object = Source(id,name,description,url,category,language,country)
+            sources_object = Source(id,name,description,url,category,language,country,urlToImage)
 
             sources_results.append(sources_object)
     return sources_results
