@@ -1,21 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to News-article reviews </title>
-        {% endif %}
-    </head>
-    <body>
-         <!-- General source section  -->
-         <h3> General Sources</h3>
-         <ul>
-            {% for general_source in general %}
-                <li>{{ general_source.title}}</li>
-            {% endfor %}
-        </ul>
+{% import 'macros.html' as macro %}
+{% extends 'base.html'}
 
-    </body>
-</html>
+<div class="container">
+    {% block content%}
+
+    <h2 class="text">General sources</h2>
+    <br>
+    {{macro.displaySourcesList(general_sources)}}
+
+    <h2 class="text">Sports sources</h2>
+    <br>
+    {{macro.displaySourcesList(sports_sources)}}
+
+    <h2 class="text">Technology sources</h2>
+    <br>
+    {{macro.displaySourcesList(technology_sources)}}
+
+    <h2 class="text">Entertainment sources</h2>
+    <br>
+    {{macro.displaySourcesList(entertainment_sources)}}
+    
+    <h2 class="text">Business sources</h2>
+    <br>
+    {{macro.displaySourcesList(business_sources)}}
+
+    <h2 class="text">Health sources</h2>
+    <br>
+    {{macro.displaySourcesList(health_sources)}}
+
+    <h2 class="text">science sources</h2>
+    <br>
+    {{macro.displaySourcesList(science_sources)}}
+</div>
+{% endblock %}
