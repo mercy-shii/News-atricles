@@ -12,7 +12,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-6-md">
-           <h1 class="text-center">Helo K</h1>
+           <h1 class="text-center">WELCOME TO NEWS ARTICLES</h1>
                
                 <h2 class="title">General</h2>
                 {% for general_news in general %}
@@ -27,13 +27,16 @@
                 <!---sports news-->
                 <h2 class="title"> Sports news</h2>
                 {% for sports_news in sports %}
-                <div class="cards">
-                    <h4 class="card-tirle2">{{  sports_news.name}}</h4>
-    
-                        <a href="/article/{{sports_news.id}}" class="btn" target="_blank" style="color: blue;">
-                            Go there  
-                        </a>
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Sport news</h5>
+                      <h6 class="title2">{{  sports_news.name}}</h6>
+                      
+                      <a href="/article/{{sports_news.id}}" class="btn" target="_blank" style="color: aqua;">GO there</a>
                     </div>
+                  </div>
+                
                 
             {% endfor %}
             <br>
@@ -115,6 +118,9 @@
                     background-color : blue;
                     color:white;
                     width: 10%;
+                }
+                .container_fluid{
+                    background-color: aqua;
                 }
             </style>
             {% endblock %}

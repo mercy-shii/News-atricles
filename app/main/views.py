@@ -11,14 +11,14 @@ def index():
 
 
     general_news = get_source('general')
-    print('*************general news*********************')
+    print('****general news****')
     print(general_news)
     sports_news = get_source('sports')
     business_news = get_source('business')
     technology_news = get_source('technology')
     
    
-    title='Feeds'
+    title='News-articles'
 
     return render_template('index.html', title=title, general=general_news, sports=sports_news, business=business_news, technology=technology_news,)
 
