@@ -6,7 +6,7 @@ class Config:
     '''
    
     SOURCE_API_BASE_URL = 'https://newsapi.org/v2/sources?apiKey=b50dd86155244655ab3cb391841bd78a'
-    ARTICLE_BASE_URL = 'https://newsapi.org/v2/sources?language=en&apiKey=b50dd86155244655ab3cb391841bd78a'
+    ARTICLE_BASE_URL = 'https://newsapi.org/v2/everything?domains=wsj.com,nytimes.com&apiKey=b50dd86155244655ab3cb391841bd78a'
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
