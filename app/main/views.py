@@ -3,9 +3,8 @@ from . import main
 from ..request import get_source,get_articles
 from ..models import Source
 
-@main.route('/',methods=['GET'])
+@main.route('/', methods=['GET'])
 def index():
-
 
 
 
@@ -29,6 +28,7 @@ def index():
    
 @main.route('/article/<article_id>')
 def article(article_id):
+    
     articles = get_articles(article_id)
 
     print('***get_article***')
