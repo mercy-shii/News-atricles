@@ -14,14 +14,14 @@ base_url = None
 articles_url = None
 
 def configure_request(app):
-    global api_key,base_url,article_url
+    global api_key,base_url,articles_url
     api_key=app.config['NEWS_API_KEY']
 
     base_url=app.config['SOURCE_API_BASE_URL']
     print('***base source url***')
     print(base_url)
 
-    article_url=app.config['ARTICLE_NEWS_URL']
+    articles_url=app.config['ARTICLE_BASE_URL']
     print('***base article***')
     print(articles_url)
 
@@ -63,10 +63,10 @@ def process_source(source_list):
         country = source_item.get('country')
         urlToImage = source_item.get('urlToImage')
 
-        if id:
-            source_object = Source(id,name,description,url,category,language,country,urlToImage)
+        
+        source_object = Source(id,name,description,url,category,language,country,urlToImage)
 
-            source_results.append(source_object)
+        source_results.append(source_object)
     return source_results
 
 def get_articles(id):
@@ -84,7 +84,7 @@ def get_articles(id):
         
 
         if articles_results['articles']:
-            article_object = process_articles(article_results['articles'])
+            articles_object = process_articles(articles_results['articles'])
 
     return articles_object
 

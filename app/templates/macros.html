@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% macro displaySourcesList(sources_list)%}
-{% for source_display in sources_list |batch(4)%}
+{% macro displaySourceList(source_list)%}
+{% for source_display in source_list |batch(4)%}
     
         {% for source in source_display %}
         <div class="display">

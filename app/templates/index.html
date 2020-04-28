@@ -25,18 +25,16 @@
             
         
                 <!---sports news-->
-                <h2 class="title"> Sports news</h2>
+                
+                <h2 class="title"> Sports news</h2> 
                 {% for sports_news in sports %}
-
-                <div class="card" style="width: 30rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Sport news</h5>
-                      <h6 class="title2">{{  sports_news.name}}</h6>
+                    <div class="cards">
+        
+                      <h6 class=" card-title2">{{  sports_news.name}}</h6>
                       
                       <a href="/article/{{sports_news.id}}" class="btn" target="_blank" style="color: aqua;">GO there</a>
                     </div>
-                  </div>
-                
+                  
                 
             {% endfor %}
             <br>
@@ -45,7 +43,7 @@
                 <h2 class="title"> Business news</h2>
                 {% for business_news in business %}
                 <div class="cards">
-                    <h4 class="title3">{{  business_news.name}}</h4>
+                    <h4 class="card-title3">{{  business_news.name}}</h4>
 
                         <a href="/article/{{business_news.id}}" class="btn" target="_blank" style="color: green">
                             Go there  

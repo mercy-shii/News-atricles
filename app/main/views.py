@@ -1,9 +1,9 @@
-from flask import render_template
+from flask import render_template,request,redirect,url_for
 from . import main
 from ..request import get_source,get_articles
 from ..models import Source
 
-@main.route('/')
+@main.route('/',methods=['GET'])
 def index():
 
 
