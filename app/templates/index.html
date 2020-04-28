@@ -8,7 +8,7 @@
 <!-- Content block -->
 {% block content %}
 
-<div class="everything text-center">
+<div class=" text-center">
 <div class="container-fluid">
     <div class="row">
         <div class="col-6-md">
@@ -16,7 +16,7 @@
                
                 <h2 class="title">General</h2>
                 {% for general_news in general %}
-                <div class="cards">       
+                <div class="card-body">       
                     <h4 class="card-title h4 mb-4">{{general_news.name}}</h4>  
                     <a href="/article/{{general_news.id}}" class="btn" target="_blank" >
                         For more news click here  </a>
@@ -28,7 +28,7 @@
                 
                 <h2 class="title"> Sports news</h2> 
                 {% for sports_news in sports %}
-                    <div class="cards">
+                    <div class="card-body">
         
                       <h6 class=" card-title2">{{  sports_news.name}}</h6>
                       
@@ -42,7 +42,7 @@
                  <!---Business news-->
                 <h2 class="title"> Business news</h2>
                 {% for business_news in business %}
-                <div class="cards">
+                <div class="card-body">
                     <h4 class="card-title3">{{  business_news.name}}</h4>
 
                         <a href="/article/{{business_news.id}}" class="btn" target="_blank" style="color: green">
@@ -54,7 +54,7 @@
                 <!---Technology news--->
                 <h2> Technology news</h2>
                 {% for technology_news in technology %}
-                <div class="cards">
+                <div class="card-body">
                     <h4>{{  technology_news.name}}</h4>
                     
                     <a href="/article/{{technology_news.id}}" target="_blank" style="color: blue;">
@@ -86,8 +86,8 @@
                 .everything{
                     align-items: center;
                 }
-                .cards{
-                    border: 1px solid black;
+                .card-body{
+                    
                     margin: 40px;
                     margin-left: 200px;
                     margin-right: 200px;
@@ -100,27 +100,31 @@
 
                 }
                 .btn{
-                    border: 2px solid blue;
+                    border: 10px solid beige;
                     color:blue;
                     
                 }
                 .btn1{
-                    border: 2px solid blue;
+                    border: 10px solid beige;
                     color: lightskyblue;
                     
                 }
                 .btn2{
-                    border: 2px solid blue;
+                    border: 10px solid beige;
                     color:lightgreen;
                     
                 }
                 .btn:hover{
-                    background-color : blue;
+                    background-color :lightgray ;
                     color:white;
-                    width: 10%;
+                    width: 30%;
                 }
                 .container_fluid{
                     background-color: aqua;
+                    padding:2px 16px
+                }
+                .text-center{
+                    background-color: aquamarine;
                 }
             </style>
             {% endblock %}
